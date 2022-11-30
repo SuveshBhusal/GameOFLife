@@ -12,15 +12,15 @@ public class CTISGOLPROJECT {
     intial alive = 40% 
     */
     public static void main(String[] args) {
-        //GOLGUI theGUI = new GOLGUI();
+        GOLGUI theGUI = new GOLGUI();
         Block theBlock = new Block();
         ArrayList<ArrayList<Block>> theGrid = theBlock.initGrid(10); //grid setup
         int generation = 0;
-        JFrame startWindow = new JFrame("Jason and Eric's Conway's Game Of Life");
-        startWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //startWindow.add(theGUI);
-        startWindow.pack();
-        startWindow.setVisible(true);   
+        //JFrame startWindow = new JFrame("Jason and Suvesh's Conway's Game Of Life");
+        //startWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //startWindow.getContentPane().add(theGUI);
+        //startWindow.pack();
+        theGUI.setVisible(true);   
         //start the simulation
         for (int i=0;i<20;i++){
             //methods: update neighbors alive
