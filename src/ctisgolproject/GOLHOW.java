@@ -1,9 +1,13 @@
 package ctisgolproject;
 
+import javax.swing.ImageIcon;
+
 public class GOLHOW extends javax.swing.JFrame {
 
     public GOLHOW() {
         initComponents();
+        ImageIcon firstIcon = new ImageIcon("golRulesSmolVer.png");
+        image1Label.setIcon(firstIcon);
     }
 
     @SuppressWarnings("unchecked")
@@ -12,9 +16,10 @@ public class GOLHOW extends javax.swing.JFrame {
 
         howtitlemain = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
+        image1Label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("canitwork");
+        setTitle("How It Works");
 
         howtitlemain.setText("How It Works");
 
@@ -30,20 +35,27 @@ public class GOLHOW extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(126, 126, 126)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(backButton)
-                    .addComponent(howtitlemain))
-                .addContainerGap(202, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(247, 247, 247)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(backButton)
+                            .addComponent(howtitlemain)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(image1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(howtitlemain)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
+                .addComponent(image1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(backButton)
-                .addGap(34, 34, 34))
+                .addGap(15, 15, 15))
         );
 
         pack();
@@ -93,5 +105,6 @@ public class GOLHOW extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JLabel howtitlemain;
+    private javax.swing.JLabel image1Label;
     // End of variables declaration//GEN-END:variables
 }
