@@ -1,18 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package ctisgolproject;
 
-/**
- *
- * @author suves
- */
 public class GOLexamples extends javax.swing.JFrame {
 
-    /**
-     * Creates new form GOLexamples
-     */
     public GOLexamples() {
         initComponents();
     }
@@ -44,6 +33,11 @@ public class GOLexamples extends javax.swing.JFrame {
         jRadioButton3.setText("Example 3");
 
         runExample.setText("Run");
+        runExample.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                runExampleActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,6 +70,10 @@ public class GOLexamples extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void runExampleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runExampleActionPerformed
+        new GOLDrawer().setVisible(true);
+    }//GEN-LAST:event_runExampleActionPerformed
 
     /**
      * @param args the command line arguments
