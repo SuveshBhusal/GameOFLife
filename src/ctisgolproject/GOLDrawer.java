@@ -15,11 +15,9 @@ public class GOLDrawer extends JFrame{
     public void drawSquare(Graphics g, int x, int y, int size, boolean fill){
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawRect(x, y, size,size);
-        if(fill=true){
-        g2d.fillRect(x, y,size, size);}
-        else if(fill=false){
-        g2d.drawRect(x, y, size, size);}
-        
+        if(fill==true){
+        g2d.fillRect(x, y,size, size);
+        }
     }
     
     public void drawGrid(Graphics g, int x, int y, int gridSize, int n){
@@ -28,7 +26,7 @@ public class GOLDrawer extends JFrame{
         //drawSquare(g,50,50,100);
         for (int i=0; i<n; i++){
             for (int j=0; j<n;j++){
-                drawSquare(g,i*squareSize,j*squareSize,100,true);
+                drawSquare(g,x+i*squareSize,y+j*squareSize,squareSize,false);
             }
 }
         /*find square size with gridSize/n
@@ -43,7 +41,7 @@ public class GOLDrawer extends JFrame{
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        drawSquare(g,50,50,100,true);
-        drawGrid(g,1,1,1,1);
+        //drawSquare(g,50,50,100,true);
+        drawGrid(g,500,100,600,50);
     }
 }
