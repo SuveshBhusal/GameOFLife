@@ -72,7 +72,7 @@ public class GOLexamples extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void runExampleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runExampleActionPerformed
-        new GOLDrawer().setVisible(true);
+        new GOLexamples().setVisible(true);
     }//GEN-LAST:event_runExampleActionPerformed
 
     /**
