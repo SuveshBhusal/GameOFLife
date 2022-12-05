@@ -35,8 +35,8 @@ public class Block {
                     Block b = new Block(false,2,p);
                     rows.add(b);
                 }
-            grid.add(rows);
             }
+            grid.add(rows);
         }
         //System.out.print(grid.get(0).get(0).getPos()+"\n");
         return grid;

@@ -14,7 +14,7 @@ public class GOLDrawer extends JFrame{
     public GOLDrawer() {
         //0 is userInput, 1 is ex.1, 2 is ex.2, 3 is ex.3
         super("Square");
-        setSize(960, 400);
+        setSize(960, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
@@ -22,30 +22,37 @@ public class GOLDrawer extends JFrame{
     public void drawSquare(Graphics g, int x, int y, int size, boolean fill){
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawRect(x, y, size,size);
-        if(fill==true){
+        if(fill){
         g2d.fillRect(x, y,size, size);
+        } else{
+            g2d.clearRect(x,y,size,size);
         }
     }
     
-    public void drawGrid(Graphics g, int x, int y, int gridSize, int n){
+    public void drawGrid(Graphics g, int x, int y, int gridSize, int n, ArrayList<ArrayList<Block>> grid){
         Graphics2D g2d = (Graphics2D) g;
         int squareSize = gridSize/n;
         //drawSquare(g,50,50,100);
         for (int i=0; i<n; i++){
             for (int j=0; j<n;j++){
-                drawSquare(g,x+i*squareSize,y+j*squareSize,squareSize,false);
+                if (grid.get(i).get(j).isAlive()){
+                    drawSquare(g,x+i*squareSize,y+j*squareSize,squareSize,true);
+                }
+                else{
+                    drawSquare(g,x+i*squareSize,y+j*squareSize,squareSize,false);
+                }
             }
         }
     }
     public void draw1(Graphics g, int x, int y, int gridSize, int n){
         ArrayList<ArrayList<Block>> theGrid = theBlock.initGrid(n); //grid setup
-        for (int i=0;i<20;i++){//20 generations, parameterize this later
-            
+        for (int i=0;i<100;i++){//parameterize generation this later
             theBlock.updateNeighborsAlive(theGrid, n);
             theBlock.updateAlive(theGrid,n);
+            drawGrid(g,x,y,gridSize,n,theGrid);
             generation+=1;
             try {
-                Thread.sleep(20);
+                Thread.sleep(100);
             } catch (InterruptedException ex) {
                 Logger.getLogger(CTISGOLPROJECT.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -55,11 +62,11 @@ public class GOLDrawer extends JFrame{
     
     @Override
     public void paint(Graphics g) {
-        System.out.println(UserInput.uInput);
-        System.out.println(GOLexamples.cT);
+        //System.out.println(UserInput.uInput);
+        //System.out.println(GOLexamples.cT);
         super.paint(g);
         if (GOLexamples.cT==0){
-            draw1(g,500,100,600,UserInput.gridLen);
+            draw1(g,300,100,300,UserInput.gridLen);
         }
         //drawGrid(g,500,100,600,50);
         
