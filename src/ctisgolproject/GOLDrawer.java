@@ -59,8 +59,20 @@ public class GOLDrawer extends JFrame{
         }
         System.out.println(generation);
     }
-    public void drawEx1(){
-        
+    public void drawEx1(Graphics g, int x, int y, int gridSize, int n){
+        ArrayList<ArrayList<Block>> theCheckerboardGrid = theBlock.initCheckerboardGrid(n); //grid setup
+        for (int i=0;i<100;i++){
+            theBlock.updateNeighborsAlive(theCheckerboardGrid, n);
+            theBlock.updateAlive(theCheckerboardGrid,n);
+            drawGrid(g,x,y,gridSize,n,theCheckerboardGrid);
+            generation+=1;
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(CTISGOLPROJECT.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        System.out.println(generation);
     }
     public void drawEx2(){
         
@@ -77,7 +89,7 @@ public class GOLDrawer extends JFrame{
             drawUserInput(g,300,100,300,UserInput.gridLen);
         }
         if (GOLexamples.cT==1){ //checkerboard
-            drawEx1();
+            drawEx1(g,300,100,300,40);
         }
         if (GOLexamples.cT==2){ //you choose
             drawEx2();
