@@ -5,9 +5,11 @@ import java.awt.Graphics2D;
 import javax.swing.JFrame;
 
 public class GOLDrawer extends JFrame{
+    //int cT = callThis;
     public GOLDrawer() {
+        //0 is userInput, 1 is ex.1, 2 is ex.2, 3 is ex.3
         super("Square");
-        setSize(480, 200);
+        setSize(960, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
@@ -28,20 +30,16 @@ public class GOLDrawer extends JFrame{
             for (int j=0; j<n;j++){
                 drawSquare(g,x+i*squareSize,y+j*squareSize,squareSize,false);
             }
-}
-        /*find square size with gridSize/n
-        loop drawSquare() n^2 times with i and j loops
-        drawSquare(i*squareSize,j*squareSize) or something else depending on how it draws
-        
-        for the last step you can implement a fill parameter in drawSquare
-        where it does drawRect if false and fillRect if true
-        */
+        }
     }
 
+    
     @Override
     public void paint(Graphics g) {
+        System.out.println(UserInput.uInput);
+        System.out.println(GOLexamples.cT);
         super.paint(g);
-        //drawSquare(g,50,50,100,true);
         drawGrid(g,500,100,600,50);
+        
     }
 }
