@@ -44,7 +44,7 @@ public class GOLDrawer extends JFrame{
             }
         }
     }
-    public void draw1(Graphics g, int x, int y, int gridSize, int n){
+    public void drawUserInput(Graphics g, int x, int y, int gridSize, int n){
         ArrayList<ArrayList<Block>> theGrid = theBlock.initGrid(n); //grid setup
         for (int i=0;i<100;i++){//parameterize generation this later
             theBlock.updateNeighborsAlive(theGrid, n);
@@ -59,14 +59,31 @@ public class GOLDrawer extends JFrame{
         }
         System.out.println(generation);
     }
-    
+    public void drawEx1(){
+        
+    }
+    public void drawEx2(){
+        
+    }
+    public void drawEx3(){
+        
+    }
     @Override
     public void paint(Graphics g) {
         //System.out.println(UserInput.uInput);
         //System.out.println(GOLexamples.cT);
         super.paint(g);
         if (GOLexamples.cT==0){
-            draw1(g,300,100,300,UserInput.gridLen);
+            drawUserInput(g,300,100,300,UserInput.gridLen);
+        }
+        if (GOLexamples.cT==1){ //checkerboard
+            drawEx1();
+        }
+        if (GOLexamples.cT==2){ //you choose
+            drawEx2();
+        }
+        if (GOLexamples.cT==3){ //glider gun https://playgameoflife.com/lexicon/Gosper_glider_gun
+            drawEx3();
         }
         //drawGrid(g,500,100,600,50);
         
