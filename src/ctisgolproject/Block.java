@@ -26,19 +26,19 @@ public class Block {
                 double living = generator.nextDouble();
                 Point p = new Point(i,j);
                 if (living<0.4){
-                    System.out.println("yay");
+                    //System.out.println("yay");
                     Block b = new Block(true,2,p);
                     rows.add(b);
                 }
                 else{
-                    System.out.println("nay");
+                    //System.out.println("nay");
                     Block b = new Block(false,2,p);
                     rows.add(b);
                 }
             grid.add(rows);
             }
         }
-        System.out.print(grid.get(0).get(0).getPos()+"\n");
+        //System.out.print(grid.get(0).get(0).getPos()+"\n");
         return grid;
     }
     public void checkCorners(ArrayList<ArrayList<Block>> grid, int N){

@@ -27,16 +27,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                      <Component id="gridSize" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelGridLength" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                      <Component id="gridTextField" min="-2" max="-2" attributes="0"/>
+                      <Component id="editTextGridLength" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
-                      <Component id="getgrid" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonRunUserInput" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="104" max="32767" attributes="0"/>
+              <EmptySpace pref="90" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -45,31 +45,34 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="gridSize" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="gridTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelGridLength" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="editTextGridLength" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="getgrid" min="-2" max="-2" attributes="0"/>
+              <Component id="buttonRunUserInput" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="163" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="gridSize">
+    <Component class="javax.swing.JLabel" name="labelGridLength">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Enter Grid Size(int):"/>
+        <Property name="text" type="java.lang.String" value="Enter Grid Length(int):"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="gridTextField">
+    <Component class="javax.swing.JTextField" name="editTextGridLength">
       <Properties>
         <Property name="text" type="java.lang.String" value="10"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="getgrid">
+    <Component class="javax.swing.JButton" name="buttonRunUserInput">
       <Properties>
         <Property name="text" type="java.lang.String" value="Run"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRunUserInputActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
