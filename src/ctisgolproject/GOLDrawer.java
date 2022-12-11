@@ -74,11 +74,23 @@ public class GOLDrawer extends JFrame{
         }
         System.out.println(generation);
     }
-    public void drawEx2(){
-        
+    public void drawEx2(Graphics g, int x, int y, int gridSize, int n){
+    ArrayList<ArrayList<Block>> theEx2Grid = theBlock.inittheEx2Grid(n);
+    for (int i=0;i<100;i++){
+            theBlock.updateNeighborsAlive(theEx2Grid, n);
+            theBlock.updateAlive(theEx2Grid,n);
+            drawGrid(g,x,y,gridSize,n,theEx2Grid);
+            generation+=1;
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(CTISGOLPROJECT.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        System.out.println(generation);
     }
     public void drawEx3(){
-        
+    ArrayList<ArrayList<Block>> theEx2Grid = theBlock.inittheEx3Grid(n);
     }
     @Override
     public void paint(Graphics g) {
@@ -92,7 +104,7 @@ public class GOLDrawer extends JFrame{
             drawEx1(g,300,100,300,40);
         }
         if (GOLexamples.cT==2){ //you choose
-            drawEx2();
+            drawEx2(g,300,100,300,50);
         }
         if (GOLexamples.cT==3){ //glider gun https://playgameoflife.com/lexicon/Gosper_glider_gun
             drawEx3();

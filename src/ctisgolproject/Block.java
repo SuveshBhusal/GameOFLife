@@ -63,6 +63,50 @@ public class Block {
         //System.out.print(grid.get(0).get(0).getPos()+"\n");
         return grid;
     }
+    public ArrayList<ArrayList<Block>> inittheEx2Grid(int N){ //replace 10 with n/size/number from scanner // Just changed the parameters in the second loop to give it a different effect
+        ArrayList<ArrayList<Block>> grid = new ArrayList<>();
+        for (int i=0; i<N; i++){
+            ArrayList<Block> rows = new ArrayList();
+            for (int j=0; j<N; j++){
+                Point p1 = new Point(i,j);
+                if ((i+j)/2==5||(i+j)==10){
+                    //System.out.println("yay");
+                    Block b = new Block(true,2,p1);
+                    rows.add(b);
+                }
+                else{
+                    //System.out.println("nay");
+                    Block b = new Block(false,2,p1);
+                    rows.add(b);
+                }
+            }
+            grid.add(rows);
+        }
+        //System.out.print(grid.get(0).get(0).getPos()+"\n");
+        return grid;
+    }
+    public ArrayList<ArrayList<Block>> inittheEx3Grid(int N){ //replace 10 with n/size/number from scanner // Just changed the parameters in the second loop to give it a different effect
+        ArrayList<ArrayList<Block>> grid = new ArrayList<>();
+        for (int i=0; i<N; i++){
+            ArrayList<Block> rows = new ArrayList();
+            for (int j=0; j<N; j++){
+                Point p1 = new Point(i,j);
+                if ((i+j)/2==5||(i+j)==10){
+                    //System.out.println("yay");
+                    Block b = new Block(true,2,p1);
+                    rows.add(b);
+                }
+                else{
+                    //System.out.println("nay");
+                    Block b = new Block(false,2,p1);
+                    rows.add(b);
+                }
+            }
+            grid.add(rows);
+        }
+        //System.out.print(grid.get(0).get(0).getPos()+"\n");
+        return grid;
+    }
     public void checkCorners(ArrayList<ArrayList<Block>> grid, int N){
         int count1 = 0;
         int count2 = 0;
