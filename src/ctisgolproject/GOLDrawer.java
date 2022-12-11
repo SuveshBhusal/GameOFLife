@@ -90,7 +90,7 @@ public class GOLDrawer extends JFrame{
         System.out.println(generation);
     }
     public void drawEx3(){
-    ArrayList<ArrayList<Block>> theEx2Grid = theBlock.inittheEx3Grid(n);
+    //ArrayList<ArrayList<Block>> theEx2Grid = theBlock.inittheEx3Grid(n);
     }
     @Override
     public void paint(Graphics g) {
