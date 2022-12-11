@@ -94,7 +94,7 @@ public class Block {
     ArrayList<Point> listPointAlive = new ArrayList<>();
 
     try {
-        File file = new File("C:\\Users\\suves\\Desktop\\glidergun.txt");
+        File file = new File("C:\\Users\\suves\\Desktop\\Suvesh School\\Suvesh 12th grade\\CTIS 210\\CTISGOLPROJECT\\glidergun.txt");
         Scanner scan = new Scanner(file);
         while (scan.hasNextLine()) {
             String[] splitted = scan.nextLine().split("\\s+");
