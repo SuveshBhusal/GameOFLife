@@ -1,7 +1,10 @@
 package ctisgolproject;
 import java.awt.Point;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Block {
     //attributes
@@ -85,13 +88,35 @@ public class Block {
         //System.out.print(grid.get(0).get(0).getPos()+"\n");
         return grid;
     }
-    public ArrayList<ArrayList<Block>> inittheEx3Grid(int N){ //replace 10 with n/size/number from scanner // Just changed the parameters in the second loop to give it a different effect
-        ArrayList<ArrayList<Block>> grid = new ArrayList<>();
+    public ArrayList<ArrayList<Block>> inittheEx3Grid(int N)throws Exception{ //replace 10 with n/size/number from scanner // Just changed the parameters in the second loop to give it a different effect
+    ArrayList<ArrayList<Block>> grid = new ArrayList<>();
+    ArrayList<String> listAlive = new ArrayList<>();
+    ArrayList<Point> listPointAlive = new ArrayList<>();
+
+    try {
+        File file = new File("C:\\Users\\suves\\Desktop\\glidergun.txt");
+        Scanner scan = new Scanner(file);
+        while (scan.hasNextLine()) {
+            String[] splitted = scan.nextLine().split("\\s+");
+            //System.out.println(Arrays.toString(splitted));
+            for (String a : splitted){
+                listAlive.add(a);
+            }
+        }
+        System.out.println(listAlive);
+        System.out.println(Integer.parseInt((listAlive.get(0))));
+        for (int i=0;i<listAlive.size()/2;i++){
+            int a = Integer.parseInt((listAlive.get(i*2)));
+            int b = Integer.parseInt((listAlive.get(i*2+1)));
+            Point x = new Point(a,b);
+            listPointAlive.add(x);
+        }
+
         for (int i=0; i<N; i++){
             ArrayList<Block> rows = new ArrayList();
             for (int j=0; j<N; j++){
                 Point p1 = new Point(i,j);
-                if ((i+j)/2==5||(i+j)==10){
+                if ((listPointAlive.contains(p1))){
                     //System.out.println("yay");
                     Block b = new Block(true,2,p1);
                     rows.add(b);
@@ -106,6 +131,50 @@ public class Block {
         }
         //System.out.print(grid.get(0).get(0).getPos()+"\n");
         return grid;
+    } catch (Exception e) {
+        System.out.println("An error occurred while reading from the file: " + e.getMessage());
+        throw e;
+    }
+        /*ArrayList<ArrayList<Block>> grid = new ArrayList<>();
+        ArrayList<String> listAlive = new ArrayList<>();
+        ArrayList<Point> listPointAlive = new ArrayList<>();
+        File file = new File("C:\\Users\\suves\\Desktop\\glidergun.txt");
+        Scanner scan = new Scanner(file);
+        while (scan.hasNextLine()) {
+            String[] splitted = scan.nextLine().split("\\s+");
+            //System.out.println(Arrays.toString(splitted));
+            for (String a : splitted){
+                listAlive.add(a);
+            }
+        }
+        System.out.println(listAlive);
+        System.out.println(Integer.parseInt((listAlive.get(0))));
+        for (int i=0;i<listAlive.size()/2;i++){
+            int a = Integer.parseInt((listAlive.get(i*2)));
+            int b = Integer.parseInt((listAlive.get(i*2+1)));
+            Point x = new Point(a,b);
+            listPointAlive.add(x);
+        }
+       
+        for (int i=0; i<N; i++){
+            ArrayList<Block> rows = new ArrayList();
+            for (int j=0; j<N; j++){
+                Point p1 = new Point(i,j);
+                if ((listPointAlive.contains(p1))){
+                    //System.out.println("yay");
+                    Block b = new Block(true,2,p1);
+                    rows.add(b);
+                }
+                else{
+                    //System.out.println("nay");
+                    Block b = new Block(false,2,p1);
+                    rows.add(b);
+                }
+            }
+            grid.add(rows);
+        }
+        //System.out.print(grid.get(0).get(0).getPos()+"\n");
+        return grid;*/
     }
     public void checkCorners(ArrayList<ArrayList<Block>> grid, int N){
         int count1 = 0;

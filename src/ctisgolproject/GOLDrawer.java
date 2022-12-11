@@ -2,6 +2,7 @@ package ctisgolproject;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -89,8 +90,20 @@ public class GOLDrawer extends JFrame{
         }
         System.out.println(generation);
     }
-    public void drawEx3(){
-    //ArrayList<ArrayList<Block>> theEx2Grid = theBlock.inittheEx3Grid(n);
+    public void drawEx3(Graphics g, int x, int y, int gridSize, int n)throws Exception{
+    ArrayList<ArrayList<Block>> theEx3Grid = theBlock.inittheEx3Grid(n);
+    for (int i=0;i<100;i++){
+            theBlock.updateNeighborsAlive(theEx3Grid, n);
+            theBlock.updateAlive(theEx3Grid,n);
+            drawGrid(g,x,y,gridSize,n,theEx3Grid);
+            generation+=1;
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(CTISGOLPROJECT.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        System.out.println(generation);
     }
     @Override
     public void paint(Graphics g) {
@@ -106,8 +119,12 @@ public class GOLDrawer extends JFrame{
         if (GOLexamples.cT==2){ //you choose
             drawEx2(g,300,100,300,50);
         }
-        if (GOLexamples.cT==3){ //glider gun https://playgameoflife.com/lexicon/Gosper_glider_gun
-            drawEx3();
+        if (GOLexamples.cT==3){                          try {
+            //glider gun https://playgameoflife.com/lexicon/Gosper_glider_gun
+            drawEx3(g,300,100,300,50);
+            } catch (Exception ex) {
+                Logger.getLogger(GOLDrawer.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         //drawGrid(g,500,100,600,50);
         
