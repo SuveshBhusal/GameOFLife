@@ -15,6 +15,7 @@ public class GOLexamples extends javax.swing.JFrame {
         buttonExample2 = new javax.swing.JRadioButton();
         buttonExample3 = new javax.swing.JRadioButton();
         buttonRunExample = new javax.swing.JButton();
+        backbuttonEX = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -34,20 +35,32 @@ public class GOLexamples extends javax.swing.JFrame {
             }
         });
 
+        backbuttonEX.setText("Back");
+        backbuttonEX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backbuttonEXActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(buttonRunExample)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonExample1)
-                        .addGap(28, 28, 28)
-                        .addComponent(buttonExample2)))
-                .addGap(18, 18, 18)
-                .addComponent(buttonExample3)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(buttonRunExample)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(buttonExample1)
+                                .addGap(28, 28, 28)
+                                .addComponent(buttonExample2)))
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonExample3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(backbuttonEX)))
                 .addContainerGap(109, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -60,7 +73,9 @@ public class GOLexamples extends javax.swing.JFrame {
                     .addComponent(buttonExample3))
                 .addGap(45, 45, 45)
                 .addComponent(buttonRunExample)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(backbuttonEX)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
@@ -78,6 +93,13 @@ public class GOLexamples extends javax.swing.JFrame {
         }
         new GOLDrawer().setVisible(true);
     }//GEN-LAST:event_buttonRunExampleActionPerformed
+
+    private void backbuttonEXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backbuttonEXActionPerformed
+        // TODO add your handling code here:
+         dispose();
+        GOLGUI gui=new GOLGUI();
+        gui.setVisible(true);
+    }//GEN-LAST:event_backbuttonEXActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,6 +137,7 @@ public class GOLexamples extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backbuttonEX;
     private javax.swing.JRadioButton buttonExample1;
     private javax.swing.JRadioButton buttonExample2;
     private javax.swing.JRadioButton buttonExample3;
