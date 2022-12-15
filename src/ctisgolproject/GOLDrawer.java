@@ -16,8 +16,9 @@ public class GOLDrawer extends JFrame{
         //0 is userInput, 1 is ex.1, 2 is ex.2, 3 is ex.3
         super("Square");
         setSize(960, 600);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
+        
     }
     
     public void drawSquare(Graphics g, int x, int y, int size, boolean fill){

@@ -16,6 +16,7 @@ public class GOLexamples extends javax.swing.JFrame {
         buttonExample3 = new javax.swing.JRadioButton();
         buttonRunExample = new javax.swing.JButton();
         backbuttonEX = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,40 +43,46 @@ public class GOLexamples extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Here are some premade examples to show what kind of simulations can be makes using the GOL rules");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(buttonRunExample)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(buttonExample1)
-                                .addGap(28, 28, 28)
-                                .addComponent(buttonExample2)))
-                        .addGap(18, 18, 18)
+                        .addGap(14, 14, 14)
+                        .addComponent(buttonExample1)
+                        .addGap(104, 104, 104)
+                        .addComponent(buttonExample2)
+                        .addGap(124, 124, 124)
                         .addComponent(buttonExample3))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(backbuttonEX)))
-                .addContainerGap(109, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(208, 208, 208)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(backbuttonEX)
+                            .addComponent(buttonRunExample))))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(126, 126, 126)
+                .addGap(77, 77, 77)
+                .addComponent(jLabel1)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonExample1)
                     .addComponent(buttonExample2)
                     .addComponent(buttonExample3))
-                .addGap(45, 45, 45)
+                .addGap(53, 53, 53)
                 .addComponent(buttonRunExample)
-                .addGap(26, 26, 26)
+                .addGap(78, 78, 78)
                 .addComponent(backbuttonEX)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         pack();
@@ -97,6 +104,7 @@ public class GOLexamples extends javax.swing.JFrame {
     private void backbuttonEXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backbuttonEXActionPerformed
         // TODO add your handling code here:
          dispose();
+         
         GOLGUI gui=new GOLGUI();
         gui.setVisible(true);
     }//GEN-LAST:event_backbuttonEXActionPerformed
@@ -143,5 +151,6 @@ public class GOLexamples extends javax.swing.JFrame {
     private javax.swing.JRadioButton buttonExample3;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JButton buttonRunExample;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
