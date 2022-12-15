@@ -46,9 +46,9 @@ public class GOLDrawer extends JFrame{
             }
         }
     }
-    public void drawUserInput(Graphics g, int x, int y, int gridSize, int n){
-        ArrayList<ArrayList<Block>> theGrid = theBlock.initGrid(n); //grid setup
-        for (int i=0;i<100;i++){//parameterize generation this later
+    public void drawUserInput(Graphics g, int x, int y, int gridSize, int n, int generations, double percentAlive){
+        ArrayList<ArrayList<Block>> theGrid = theBlock.initGrid(n,percentAlive); //grid setup
+        for (int i=0;i<generations;i++){//parameterize generation this later
             theBlock.updateNeighborsAlive(theGrid, n);
             theBlock.updateAlive(theGrid,n);
             drawGrid(g,x,y,gridSize,n,theGrid);
@@ -112,7 +112,7 @@ public class GOLDrawer extends JFrame{
         //System.out.println(GOLexamples.cT);
         super.paint(g);
         if (GOLexamples.cT==0){
-            drawUserInput(g,300,100,300,UserInput.gridLen);
+            drawUserInput(g,300,100,300,UserInput.gridLen,UserInput.generation,UserInput.percentAlive);
         }
         if (GOLexamples.cT==1){ //checkerboard
             drawEx1(g,300,100,300,40);

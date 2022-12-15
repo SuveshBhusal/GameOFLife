@@ -3,6 +3,8 @@ package ctisgolproject;
 public class UserInput extends javax.swing.JFrame {
     public static boolean uInput = false;
     public static int gridLen = 0;
+    public static double percentAlive = 0;
+    public static int generation = 0;
     public UserInput() {
         initComponents();
         //checkerboard, alternating rows, glider gun
@@ -16,7 +18,11 @@ public class UserInput extends javax.swing.JFrame {
         labelGridLength = new javax.swing.JLabel();
         editTextGridLength = new javax.swing.JTextField();
         buttonRunUserInput = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        buttonBack = new javax.swing.JButton();
+        labelPercentAlive = new javax.swing.JLabel();
+        editTextPercentAlive = new javax.swing.JTextField();
+        labelGeneration = new javax.swing.JLabel();
+        editTextGeneration = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -31,12 +37,20 @@ public class UserInput extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonBack.setText("Back");
+        buttonBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonBackActionPerformed(evt);
             }
         });
+
+        labelPercentAlive.setText("Enter % Alive(int):");
+
+        editTextPercentAlive.setText("40");
+
+        labelGeneration.setText("# of generations(int):");
+
+        editTextGeneration.setText("50");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -45,16 +59,22 @@ public class UserInput extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(labelGridLength)
-                        .addGap(67, 67, 67)
-                        .addComponent(editTextGridLength, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(154, 154, 154)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(buttonRunUserInput))))
-                .addContainerGap(90, Short.MAX_VALUE))
+                            .addComponent(buttonBack)
+                            .addComponent(buttonRunUserInput)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(labelGeneration, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelPercentAlive, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelGridLength, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(67, 67, 67)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(editTextGridLength, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editTextPercentAlive, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editTextGeneration, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -63,11 +83,19 @@ public class UserInput extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelGridLength)
                     .addComponent(editTextGridLength, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelPercentAlive)
+                    .addComponent(editTextPercentAlive, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelGeneration)
+                    .addComponent(editTextGeneration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(buttonRunUserInput)
-                .addGap(60, 60, 60)
-                .addComponent(jButton1)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(buttonBack)
+                .addGap(39, 39, 39))
         );
 
         pack();
@@ -76,15 +104,17 @@ public class UserInput extends javax.swing.JFrame {
     private void buttonRunUserInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRunUserInputActionPerformed
         uInput = true;
         gridLen = Integer.parseInt(editTextGridLength.getText());
+        percentAlive = Double.parseDouble(editTextPercentAlive.getText());
+        generation = Integer.parseInt(editTextGeneration.getText());
         new GOLDrawer().setVisible(true);
     }//GEN-LAST:event_buttonRunUserInputActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
         // TODO add your handling code here:
         dispose();
         GOLGUI gui=new GOLGUI();
         gui.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_buttonBackActionPerformed
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -119,9 +149,13 @@ public class UserInput extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonBack;
     private javax.swing.JButton buttonRunUserInput;
+    private javax.swing.JTextField editTextGeneration;
     private javax.swing.JTextField editTextGridLength;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField editTextPercentAlive;
+    private javax.swing.JLabel labelGeneration;
     private javax.swing.JLabel labelGridLength;
+    private javax.swing.JLabel labelPercentAlive;
     // End of variables declaration//GEN-END:variables
 }

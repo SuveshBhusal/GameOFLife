@@ -20,7 +20,7 @@ public class Block {
         this.pos = pos;
     }
     
-    public ArrayList<ArrayList<Block>> initGrid(int N){ //replace 10 with n/size/number from scanner
+    public ArrayList<ArrayList<Block>> initGrid(int N, double pAlive){ //replace 10 with n/size/number from scanner
         Random generator = new Random(); //generate the initial state
         ArrayList<ArrayList<Block>> grid = new ArrayList<>();
         for (int i=0; i<N; i++){
@@ -28,7 +28,7 @@ public class Block {
             for (int j=0; j<N; j++){
                 double living = generator.nextDouble();
                 Point p = new Point(i,j);
-                if (living<0.4){
+                if (living<pAlive/100){
                     //System.out.println("yay");
                     Block b = new Block(true,2,p);
                     rows.add(b);
